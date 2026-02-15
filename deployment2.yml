@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-test-web2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-web2
+  template:
+    metadata:
+      labels:
+        app: my-web2
+    spec:
+      containers:
+      - name: docker-test-web
+        image: good0day/bio-app:v.1
+        ports:
+        - containerPort: 3000
